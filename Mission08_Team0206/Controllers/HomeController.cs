@@ -6,9 +6,9 @@ namespace Mission08_Team0206.Controllers
 {
     public class HomeController : Controller
     {
-        private TaskDBContext context;
+        private TaskDbContext context;
 
-        public HomeController(TaskDBContext temp)
+        public HomeController(TaskDbContext temp)
         {
             context = temp;
         }
