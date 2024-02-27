@@ -14,9 +14,14 @@ public partial class TaskDbContext : DbContext
         : base(options)
     {
     }
+    
+    public DbSet<Task> Tasks { get; set; }
+
+    public DbSet<Category> Categories { get; set; }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlite("Data Source=TaskDB");
+            => optionsBuilder.UseSqlite("Data Source=TaskDB");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
