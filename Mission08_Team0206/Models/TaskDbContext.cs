@@ -15,9 +15,9 @@ public partial class TaskDbContext : DbContext
     {
     }
     
-    public DbSet<Task> Tasks { get; set; }
+    public virtual DbSet<Task> Tasks { get; set; }
 
-    public DbSet<Category> Categories { get; set; }
+    public virtual DbSet<Category> Categories { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
