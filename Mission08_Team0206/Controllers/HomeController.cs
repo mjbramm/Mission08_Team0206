@@ -27,15 +27,15 @@ namespace Mission08_Team0206.Controllers
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
-            return View("AddTask", new Task());
+            return View("AddTask", new Models.Task());
         }
 
         [HttpPost]
-        public IActionResult AddTask(Task response)
+        public IActionResult AddTask(Models.Task response)
         {
             if (ModelState.IsValid)
             {
-                _context.Task.Add(response);
+                _context.Tasks.Add(response);
                 _context.SaveChanges();
                 return RedirectToAction("Quadrants");
             }
@@ -51,9 +51,9 @@ namespace Mission08_Team0206.Controllers
 
         public IActionResult Quadrants()
         {
-            var list = _context.Task
-                .Where(x => x.Title != null)
-                .OrderBy(x => x.Title).ToList();
+            var list = _context.Tasks
+                .Where(x => x.TaskName != null)
+                .OrderBy(x => x.TaskName).ToList();
 
             return View(list);
         }
@@ -61,8 +61,8 @@ namespace Mission08_Team0206.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            var recordToEdit = _context.Task
-                .Single(x => x.CategoryId == id);
+            var recordToEdit = _context.Tasks
+                .Single(x => x.CategoryID == id);
 
             ViewBag.Cats = _context.Categories
                 .OrderBy(x => x.CategoryName)
@@ -72,7 +72,7 @@ namespace Mission08_Team0206.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(Task updatedInfo)
+        public IActionResult Update(Models.Task updatedInfo)
         {
             _context.Update(updatedInfo);
             _context.SaveChanges();
@@ -83,16 +83,16 @@ namespace Mission08_Team0206.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var recordToDelete = _context.Task
-                .Single(x => x.MovieId == id);
+            var recordToDelete = _context.Tasks
+                .Single(x => x.CategoryID == id);
 
             return View(recordToDelete);
         }
 
         [HttpPost]
-        public IActionResult Delete(Task deleteRow)
+        public IActionResult Delete(Models.Task deleteRow)
         {
-            _context.Task.Remove(deleteRow);
+            _context.Tasks.Remove(deleteRow);
             _context.SaveChanges();
 
             return RedirectToAction("Quadrants");
