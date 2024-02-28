@@ -2,7 +2,7 @@
 
 namespace Mission08_Team0206.Models
 {
-    public partial class Category
+    public class Category
     {
         [Key]
         public int CategoryID { get; set; }
