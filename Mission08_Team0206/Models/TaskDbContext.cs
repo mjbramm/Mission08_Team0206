@@ -2,31 +2,34 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Mission08_Team0206.Models;
-
-public partial class TaskDbContext : DbContext
+namespace Mission08_Team0206.Models
 {
-    public TaskDbContext()
-    {
-    }
 
-    public TaskDbContext(DbContextOptions<TaskDbContext> options)
-        : base(options)
+
+    public class TaskDbContext : DbContext
     {
-    }
+        //public TaskDbContext()
+        //{
+        //}
+
+        public TaskDbContext(DbContextOptions<TaskDbContext> options): base(options)
+        {
+        }
     
-    public virtual DbSet<Task> Tasks { get; set; }
+        public DbSet<Task> Tasks { get; set; }
 
-    public virtual DbSet<Category> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite("Data Source=TaskDB");
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //        => optionsBuilder.UseSqlite("Data Source=TaskDB");
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        OnModelCreatingPartial(modelBuilder);
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    OnModelCreatingPartial(modelBuilder);
+        //}
+
+        //partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
