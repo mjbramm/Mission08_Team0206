@@ -1,0 +1,121 @@
+﻿@model List<Quadrants>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2>Quadrant 1</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Task</td>
+                            <td>Due Date</td>
+                            <td>Category</td>
+                            <td>Completed</td>
+                            <td>Update</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>x.Task</td>
+                                <td>x.DueDate</td>
+                                <td>x.Category?.CategoryName</td>
+                                <td>x.Completed</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskID">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6">
+                <h2>Quadrant 2</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Task</td>
+                            <td>Due Date</td>
+                            <td>Category</td>
+                            <td>Completed</td>
+                            <td>Update</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>x.Task</td>
+                                <td>x.DueDate</td>
+                                <td>x.Category?.CategoryName</td>
+                                <td>x.Completed</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskID">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h2>Quadrant 3</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Task</td>
+                            <td>Due Date</td>
+                            <td>Category</td>
+                            <td>Completed</td>
+                            <td>Update</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>x.Task</td>
+                                <td>x.DueDate</td>
+                                <td>x.Category?.CategoryName</td>
+                                <td>x.Completed</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskID">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6">
+                <h2>Quadrant 4</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Task</td>
+                            <td>Due Date</td>
+                            <td>Category</td>
+                            <td>Completed</td>
+                            <td>Update</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>x.Task</td>
+                                <td>x.DueDate</td>
+                                <td>x.Category?.CategoryName</td>
+                                <td>x.Completed</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskID">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
