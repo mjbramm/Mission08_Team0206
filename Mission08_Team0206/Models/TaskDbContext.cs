@@ -16,7 +16,7 @@ namespace Mission08_Team0206.Models
         {
         }
     
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskModel> Tasks { get; set; }
 
         public DbSet<Category> Categories { get; set; }
 

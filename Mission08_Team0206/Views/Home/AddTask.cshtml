@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Add New Tasks";
 }
-@model Task;
+@model TaskModel;
 
 <h1>@ViewData["Title"]</h1>
 
@@ -16,7 +16,7 @@
     <h1>Add A New Task To Complete</h1>
     <form method="post">
 
-        <input asp-for="TaskId" type="hidden" required><br><br>
+        <input asp-for="TaskID" type="hidden" required><br><br>
 
         <label asp-for="TaskName" for="title">Task:</label><br>
         <input asp-for="TaskName" type="text" required><br><br>
@@ -34,8 +34,8 @@
 
 
 
-        <label asp-for="CategoryId" for="category">Category:</label><br>
-        <select asp-for="CategoryId" required>
+        <label asp-for="CategoryID" for="category">Category:</label><br>
+        <select asp-for="CategoryID" required>
             <option value="1">Home</option>
             <option value="2">School</option>
             <option value="3">Work</option>

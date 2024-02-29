@@ -27,11 +27,11 @@ namespace Mission08_Team0206.Controllers
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
-            return View("AddTask", new Task());
+            return View("AddTask", new TaskModel());
         }
 
         [HttpPost]
-        public IActionResult AddTask(Task response)
+        public IActionResult AddTask(TaskModel response)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace Mission08_Team0206.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(Task updatedInfo)
+        public IActionResult Update(TaskModel updatedInfo)
         {
             _context.Update(updatedInfo);
             _context.SaveChanges();
@@ -90,7 +90,7 @@ namespace Mission08_Team0206.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Task deleteRow)
+        public IActionResult Delete(TaskModel deleteRow)
         {
             _context.Tasks.Remove(deleteRow);
             _context.SaveChanges();
