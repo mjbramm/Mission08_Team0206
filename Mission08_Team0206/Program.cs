@@ -12,6 +12,8 @@ builder.Services.AddDbContext<TaskDbContext>(options =>
     options.UseSqlite(builder.Configuration["ConnectionStrings:sqliteConnection"]);
 });
 
+builder.Services.AddScoped<ITaskRepository, EFTaskRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -7,11 +7,11 @@ namespace Mission08_Team0206.Controllers
 {
     public class HomeController : Controller
     {
-        private TaskDbContext _context;
+        private ITaskRepository _repo;
 
-        public HomeController(TaskDbContext temp)
+        public HomeController(ITaskRepository temp)
         {
-            _context = temp;
+            _repo = temp;
         }
 
         public IActionResult Index()
@@ -23,7 +23,7 @@ namespace Mission08_Team0206.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
-            ViewBag.Cats = _context.Categories
+            ViewBag.Cats = _repo.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
@@ -35,13 +35,12 @@ namespace Mission08_Team0206.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Tasks.Add(response);
-                _context.SaveChanges();
+                _repo.AddATask(response);
                 return RedirectToAction("Quadrants");
             }
             else
             {
-                ViewBag.Cats = _context.Categories
+                ViewBag.Cats = _repo.Categories
                     .OrderBy(x => x.CategoryName)
                     .ToList();
 
@@ -51,7 +50,7 @@ namespace Mission08_Team0206.Controllers
 
         public IActionResult Quadrants()
         {
-            var list = _context.Tasks
+            var list = _repo.Tasks
                 .Where(x => x.TaskName != null)
                 .OrderBy(x => x.TaskName).ToList();
 
@@ -61,10 +60,10 @@ namespace Mission08_Team0206.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            var recordToEdit = _context.Tasks
+            var recordToEdit = _repo.Tasks
                 .Single(x => x.CategoryID == id);
 
-            ViewBag.Cats = _context.Categories
+            ViewBag.Cats = _repo.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
@@ -74,8 +73,7 @@ namespace Mission08_Team0206.Controllers
         [HttpPost]
         public IActionResult Update(TaskModel updatedInfo)
         {
-            _context.Update(updatedInfo);
-            _context.SaveChanges();
+            _repo.EditATask(updatedInfo);
 
             return RedirectToAction("Quadrants");
         }
@@ -83,7 +81,7 @@ namespace Mission08_Team0206.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var recordToDelete = _context.Tasks
+            var recordToDelete = _repo.Tasks
                 .Single(x => x.CategoryID == id);
 
             return View(recordToDelete);
@@ -92,8 +90,7 @@ namespace Mission08_Team0206.Controllers
         [HttpPost]
         public IActionResult Delete(TaskModel deleteRow)
         {
-            _context.Tasks.Remove(deleteRow);
-            _context.SaveChanges();
+            _repo.DeleteATask(deleteRow);
 
             return RedirectToAction("Quadrants");
         }
