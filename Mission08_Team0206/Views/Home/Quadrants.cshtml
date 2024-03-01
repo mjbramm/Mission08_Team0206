@@ -1,31 +1,27 @@
 ﻿@model List<TaskModel> 
-@* @model IQueryable<Task> *@
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col-6">
                 <h2>Quadrant 1</h2>
-                <table>
+                <table class="table-bordered">
                     <thead>
                         <tr>
                             <td>Task</td>
                             <td>Due Date</td>
-                            <td>Category</td>
-                            <td>Completed</td>
                             <td>Update</td>
-                            <td>Delete</td>
+                            <td>Delete</ td>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var x in Model)
+                        @foreach (var task in Model.Where(x => x.Quadrant == 1 && x.Completed != true)) @*Checks to see if in Quadrant 1 and if Completed is not true*@
                         {
                             <tr>
-                                <td>@x.TaskName</td>
-                                <td>@x.DueDate</td>
-                                <td>@x.Category?.CategoryName</td>
-                                <td>@x.Completed"</td>
-                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.CategoryID">Update</a></td>
-                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.CategoryID">Delete</a></td>
+                                <td>@task.TaskName</td>
+                                <td>@task.DueDate</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@task.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskID">Delete</a></td>
                             </tr>
                         }
                     </tbody>
@@ -33,27 +29,23 @@
             </div>
             <div class="col-6">
                 <h2>Quadrant 2</h2>
-                <table>
+                <table class="table-bordered">
                     <thead>
                         <tr>
                             <td>Task</td>
                             <td>Due Date</td>
-                            <td>Category</td>
-                            <td>Completed</td>
                             <td>Update</td>
                             <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var x in Model)
+                        @foreach (var task in Model.Where(x => x.Quadrant == 2 && x.Completed != true))
                         {
                             <tr>
-                                <td>@x.TaskName</td>
-                                <td>@x.DueDate</td>
-                                <td>@x.Category?.CategoryName</td>
-                                <td>@x.Completed</td>
-                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.CategoryID">Update</a></td>
-                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.CategoryID">Delete</a></td>
+                                <td>@task.TaskName</td>
+                                <td>@task.DueDate</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@task.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskID">Delete</a></td>
                             </tr>
                         }
                     </tbody>
@@ -63,27 +55,23 @@
         <div class="row">
             <div class="col-6">
                 <h2>Quadrant 3</h2>
-                <table>
+                <table class="table-bordered">
                     <thead>
                         <tr>
                             <td>Task</td>
                             <td>Due Date</td>
-                            <td>Category</td>
-                            <td>Completed</td>
                             <td>Update</td>
                             <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var x in Model)
+                        @foreach (var task in Model.Where(x => x.Quadrant == 3 && x.Completed != true))
                         {
                             <tr>
-                                <td>@x.TaskName</td>
-                                <td>@x.DueDate</td>
-                                <td>@x.Category?.CategoryName</td>
-                                <td>@x.Completed</td>
-                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.CategoryID">Update</a></td>
-                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.CategoryID">Delete</a></td>
+                                <td>@task.TaskName</td>
+                                <td>@task.DueDate</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@task.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskID">Delete</a></td>
                             </tr>
                         }
                     </tbody>
@@ -91,27 +79,23 @@
             </div>
             <div class="col-6">
                 <h2>Quadrant 4</h2>
-                <table>
+                <table class="table-bordered">
                     <thead>
                         <tr>
                             <td>Task</td>
                             <td>Due Date</td>
-                            <td>Category</td>
-                            <td>Completed</td>
                             <td>Update</td>
                             <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var x in Model)
+                        @foreach (var task in Model.Where(x => x.Quadrant == 4 && x.Completed != true))
                         {
                             <tr>
-                                <td>@x.TaskName</td>
-                                <td>@x.DueDate</td>
-                                <td>@x.Category?.CategoryName</td>
-                                <td>@x.Completed</td>
-                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.CategoryID">Update</a></td>
-                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.CategoryID">Delete</a></td>
+                                <td>@task.TaskName</td>
+                                <td>@task.DueDate</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@task.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskID">Delete</a></td>
                             </tr>
                         }
                     </tbody>
@@ -120,3 +104,4 @@
         </div>
     </div>
 </body>
+

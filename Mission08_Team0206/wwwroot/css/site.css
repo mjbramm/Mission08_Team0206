@@ -20,3 +20,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.col-6 {
+    text-align: center;
+}
+
+.row {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

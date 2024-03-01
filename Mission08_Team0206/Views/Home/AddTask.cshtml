@@ -24,7 +24,7 @@
             <option value="1">1: Urgent and Important</option>
             <option value="2">2: Not Urgent but Important</option>
             <option value="3">3: Urgent but not Important</option>
-            <option value="4">Not Urgent nor Important </option>
+            <option value="4">4: Not Urgent not Important </option>
         </select><br><br>
 
                 </div>
@@ -38,10 +38,10 @@
         </select><br><br>
             </div>
                   <div class="row">
-        <label asp-for="Completed" for="edited">Completed:</label><br>
-        <select asp-for="Completed" id="edited" name="edited" required>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
+        <label asp-for="Completed" >Completed:</label><br>
+        <select asp-for="Completed" required>
+            <option value="false">No</option>
+            <option value="true">Yes</option>
         </select><br><br>
                     </div>
 

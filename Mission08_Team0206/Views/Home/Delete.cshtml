@@ -1,0 +1,12 @@
+﻿@model TaskModel
+
+<h2>Are You Sure You Want to Delete:</h2>
+<h5 class="container">@Model.TaskName</h5>
+<br />
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="TaskID" />
+    <div class="buttons">
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Quadrants">Cancel</a>
+    </div>
+</form>
