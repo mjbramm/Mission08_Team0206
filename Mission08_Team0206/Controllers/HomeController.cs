@@ -61,7 +61,7 @@ namespace Mission08_Team0206.Controllers
         public IActionResult Update(int id)
         {
             var recordToEdit = _repo.Tasks
-                .Single(x => x.CategoryID == id);
+                .Single(x => x.TaskID == id);
 
             ViewBag.Cats = _repo.Categories
                 .OrderBy(x => x.CategoryName)
@@ -82,9 +82,9 @@ namespace Mission08_Team0206.Controllers
         public IActionResult Delete(int id)
         {
             var recordToDelete = _repo.Tasks
-                .Single(x => x.CategoryID == id);
+                .Single(x => x.TaskID == id);
 
-            return View(recordToDelete);
+            return View("Delete", recordToDelete);
         }
 
         [HttpPost]
