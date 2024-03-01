@@ -9,13 +9,16 @@
     <form method="post">
 
         <input asp-for="TaskID" type="hidden" required><br><br>
-
+        <div class="container">
+            <div class="row">
         <label asp-for="TaskName" for="title">Task:</label><br>
         <input asp-for="TaskName" type="text" required><br><br>
-
+            </div>
+            <div class="row">
         <label asp-for="DueDate" for="DueDate">Due Date:</label><br>
         <input asp-for="DueDate" type="text" ><br><br>
-
+            </div>
+            <div class="row">
         <label asp-for="Quadrant" for="year">Quadrant:</label><br>
         <select asp-for="Quadrant" required>
             <option value="1">1: Urgent and Important</option>
@@ -24,8 +27,8 @@
             <option value="4">Not Urgent nor Important </option>
         </select><br><br>
 
-
-
+                </div>
+                <div class="row">
         <label asp-for="CategoryID" for="category">Category:</label><br>
         <select asp-for="CategoryID" required>
             <option value="1">Home</option>
@@ -33,16 +36,18 @@
             <option value="3">Work</option>
             <option value="4">Church</option>
         </select><br><br>
-
+            </div>
+                  <div class="row">
         <label asp-for="Completed" for="edited">Completed:</label><br>
         <select asp-for="Completed" id="edited" name="edited" required>
             <option value="0">No</option>
             <option value="1">Yes</option>
         </select><br><br>
+                    </div>
 
         <input type="submit" value="Submit">
 
         <div asp-validation-summary="All"></div>
-
+        </div>
     </form>
 </body>

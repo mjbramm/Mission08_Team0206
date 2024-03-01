@@ -1,5 +1,5 @@
 ﻿@model List<TaskModel> 
-@* @model IQueryable<Task>  *@
+@* @model IQueryable<Task> *@
 <body>
     <div class="container">
         <div class="row">
@@ -20,12 +20,12 @@
                         @foreach (var x in Model)
                         {
                             <tr>
-                                <td>x.TaskName</td>
-                                <td>x.DueDate</td>
-                                <td>x.Category?.CategoryName</td>
-                                <td>x.Completed</td>
-                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskID">Update</a></td>
-                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskID">Delete</a></td>
+                                <td>@x.TaskName</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Category?.CategoryName</td>
+                                <td>@x.Completed"</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@@x.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@@x.TaskID">Delete</a></td>
                             </tr>
                         }
                     </tbody>
@@ -48,12 +48,12 @@
                         @foreach (var x in Model)
                         {
                             <tr>
-                                <td>x.TaskName</td>
-                                <td>x.DueDate</td>
-                                <td>x.Category?.CategoryName</td>
-                                <td>x.Completed</td>
-                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskID">Update</a></td>
-                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskID">Delete</a></td>
+                                <td>@x.TaskName</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Category?.CategoryName</td>
+                                <td>@x.Completed</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@@x.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@@x.TaskID">Delete</a></td>
                             </tr>
                         }
                     </tbody>
@@ -78,12 +78,12 @@
                         @foreach (var x in Model)
                         {
                             <tr>
-                                <td>x.TaskName</td>
-                                <td>x.DueDate</td>
-                                <td>x.Category?.CategoryName</td>
-                                <td>x.Completed</td>
-                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskID">Update</a></td>
-                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskID">Delete</a></td>
+                                <td>@x.TaskName</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Category?.CategoryName</td>
+                                <td>@x.Completed</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@@x.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@@x.TaskID">Delete</a></td>
                             </tr>
                         }
                     </tbody>
@@ -106,12 +106,12 @@
                         @foreach (var x in Model)
                         {
                             <tr>
-                                <td>x.TaskName</td>
-                                <td>x.DueDate</td>
-                                <td>x.Category?.CategoryName</td>
-                                <td>x.Completed</td>
-                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskID">Update</a></td>
-                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskID">Delete</a></td>
+                                <td>@x.TaskName</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Category?.CategoryName</td>
+                                <td>@x.Completed</td>
+                                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Update" asp-route-id="@@x.TaskID">Update</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@@x.TaskID">Delete</a></td>
                             </tr>
                         }
                     </tbody>
