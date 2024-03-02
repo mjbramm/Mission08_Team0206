@@ -1,7 +1,6 @@
 using Mission08_Team0206.Models;
 using Microsoft.EntityFrameworkCore;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,23 +8,16 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
 {
-    options.UseSqlite(builder.Configuration["ConnectionStrings:sqliteConnection"]);
+    options.UseSqlite(builder.Configuration["ConnectionStrings:sqliteConnection"]); // Defines our connection to the sqlite database
 });
 
 builder.Services.AddScoped<ITaskRepository, EFTaskRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+app.UseHttpsRedirection(); // Redirects Http requests to be Https
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(); // Enables use of wwwroot files
 
 app.UseRouting();
 
@@ -33,6 +25,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"); // Maps default route to the index and allows for passing ids through the URL
 
 app.Run();
