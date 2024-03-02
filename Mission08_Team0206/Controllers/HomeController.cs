@@ -19,7 +19,7 @@ namespace Mission08_Team0206.Controllers
             return View();
         }
 
-
+        //Add task action to link form
         [HttpGet]
         public IActionResult AddTask()
         {
@@ -29,7 +29,7 @@ namespace Mission08_Team0206.Controllers
 
             return View("AddTask", new TaskModel());
         }
-
+        //Add task action to post the form edit
         [HttpPost]
         public IActionResult AddTask(TaskModel response)
         {
@@ -47,7 +47,7 @@ namespace Mission08_Team0206.Controllers
                 return View(response);
             }
         }
-
+        // Quadrant action to display to the list of quadrants
         public IActionResult Quadrants()
         {
             var list = _repo.Tasks
@@ -57,6 +57,7 @@ namespace Mission08_Team0206.Controllers
             return View(list);
         }
 
+        //Action to pull in the row we want to edit
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -69,7 +70,7 @@ namespace Mission08_Team0206.Controllers
 
             return View("AddTask", recordToEdit);
         }
-
+        //Action to edit the row we want to edit
         [HttpPost]
         public IActionResult Update(TaskModel updatedInfo)
         {
@@ -77,7 +78,7 @@ namespace Mission08_Team0206.Controllers
 
             return RedirectToAction("Quadrants");
         }
-
+        //Action to confrm to delete the right row
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -86,7 +87,7 @@ namespace Mission08_Team0206.Controllers
 
             return View("Delete", recordToDelete);
         }
-
+        // Action to actually delete the row
         [HttpPost]
         public IActionResult Delete(TaskModel deleteRow)
         {
